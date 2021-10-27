@@ -1,14 +1,14 @@
-function handlerQtdVowels(e: Event) {
+function handlerAmountVowels(e: Event): void {
   e.preventDefault();
 
-  let word = document.getElementById("word") as HTMLSelectElement;
-  let response = document.getElementById('response');
+  let wordInputElement: HTMLInputElement = document.getElementById('word') as HTMLInputElement;
+  let response: HTMLElement = document.getElementById('response');
 
-  response.innerHTML = returnQtdVowelsForm(word.value);
+  response.innerHTML = `Quantidade de vogais: ${amountVowels(wordInputElement.value)}.`;
 }
 
-function returnQtdVowelsForm(word: string) {
-  let vogais = ['a', 'e', 'i', 'o', 'u'];
+function amountVowels(word: string): string {
+  let vowels: string[] = ['a', 'e', 'i', 'o', 'u'];
 
-  return word.split('').filter(l => vogais.includes(l.toLowerCase())).length.toString();
+  return word.split('').filter((letter: string) => vowels.includes(letter.toLowerCase())).length.toString();
 }
