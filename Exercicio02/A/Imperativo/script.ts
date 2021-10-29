@@ -1,8 +1,8 @@
-import { lista, Person } from '../../lista';
+import { list, Person } from '../../list';
 
 function getBio(id: number): string {
-  for (let i = 0; i < lista.length; i++) {
-    var person: Person = lista[i];
+  for (let i = 0; i < list.length; i++) {
+    var person: Person = list[i];
 
     if (person.id == id)
       return person.bio;

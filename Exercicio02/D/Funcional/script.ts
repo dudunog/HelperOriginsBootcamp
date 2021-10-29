@@ -1,4 +1,4 @@
-import { lista } from '../../lista';
+import { list } from '../../list';
 
 type PersonChange = {
   name: string;
@@ -6,7 +6,7 @@ type PersonChange = {
 }
 
 function changePerson(id: number, change: PersonChange): string {
-  var person = lista.find((person) => person.id == id);
+  var person = list.find((person) => person.id == id);
 
   if (!person)
     return 'Impossível alterar. Pessoa inexistente.';

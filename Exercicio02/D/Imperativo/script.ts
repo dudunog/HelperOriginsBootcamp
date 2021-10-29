@@ -1,4 +1,4 @@
-import { lista, Person } from '../../lista';
+import { list, Person } from '../../list';
 
 type PersonChange = {
   name: string;
@@ -6,8 +6,8 @@ type PersonChange = {
 }
 
 function changePerson(id: number, change: PersonChange): string {
-  for (let i = 0; i < lista.length; i++) {
-    let person: Person = lista[i];
+  for (let i = 0; i < list.length; i++) {
+    let person: Person = list[i];
 
     if (person.id == id) {
       person.name = change.name;
