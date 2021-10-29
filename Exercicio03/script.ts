@@ -4,7 +4,7 @@ function handlerList(list: number[]): number[] | string {
     result.push(Math.max(...list));
     result.push(Math.min(...list));
 
-    const sum = list.reduce((previousValue, currentValue) => previousValue + currentValue, 0);
+    const sum: number = list.reduce((previousValue: number, currentValue: number) => previousValue + currentValue, 0);
     result.push((sum/list.length) || 0);
 
     return result;
