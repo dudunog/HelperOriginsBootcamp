@@ -17,19 +17,6 @@ function changeList(newLista: Person[]): void {
 
 const tBody: HTMLElement = document.getElementById('tbody');
 
-function removeItem(id: number): void {
-  changeList(list.filter((person: Person) => person.id != id));
-}
-
-function clickRemoveButton(event: Event): void {
-  event.preventDefault();
-
-  let anchor: HTMLAnchorElement = event.target as HTMLAnchorElement;
-  removeItem(Number.parseInt(anchor.id));
-
-  displayData();
-}
-
 function displayData(): void {
   tBody.innerHTML = '';
   list.forEach((person: Person) => {
@@ -46,7 +33,7 @@ function displayData(): void {
     let deleteTd: HTMLTableCellElement = document.createElement("td");
     let deleteAnchor: HTMLAnchorElement = document.createElement("a");
     deleteAnchor.id = `${person.id}`;
-    deleteAnchor.innerText = "Excluir";
+    deleteAnchor.innerText = "Delete";
     deleteAnchor.href = "";
     deleteAnchor.onclick = (event) => clickRemoveButton(event);
   
@@ -54,8 +41,68 @@ function displayData(): void {
     
     tr.appendChild(deleteTd);
 
+    let editTd: HTMLTableCellElement = document.createElement("td");
+    let editAnchor: HTMLAnchorElement = document.createElement("a");
+    editAnchor.id = `${person.id}`;
+    editAnchor.innerText = "Edit";
+    editAnchor.href = "";
+    editAnchor.onclick = (event) => clickGoUpdate(event);
+
+    editTd.appendChild(editAnchor);
+    tr.appendChild(editTd);
+
     tBody.appendChild(tr);
   });
+}
+
+function displayEditData(id: number): void {
+  let idField:HTMLInputElement = document.getElementById('idField') as HTMLInputElement;
+  let nameField:HTMLInputElement = document.getElementById('nameField') as HTMLInputElement;
+  let bioField: HTMLInputElement = document.getElementById('bioField') as HTMLInputElement;
+
+  let person:Person = list.find((person: Person) => person.id == id);
+
+  idField.value = person.id.toString();
+  nameField.value = person.name;
+  bioField.value = person.bio;
+}
+
+function clickRemoveButton(event: Event): void {
+  event.preventDefault();
+
+  let anchor: HTMLAnchorElement = event.target as HTMLAnchorElement;
+  removeItem(Number.parseInt(anchor.id));
+
+  displayData();
+}
+
+function removeItem(id: number): void {
+  changeList(list.filter((person: Person) => person.id != id));
+}
+
+function clickGoUpdate(event: Event): void {
+  event.preventDefault();
+
+  let anchor: HTMLAnchorElement = event.target as HTMLAnchorElement;
+  let containerEdit: HTMLElement = document.querySelector('.container-edit');
+  containerEdit.hidden = false;
+
+  displayEditData(Number.parseInt(anchor.id));
+}
+
+function changePerson(event: Event) {
+  event.preventDefault();
+
+  let idField:HTMLInputElement = document.getElementById('idField') as HTMLInputElement;
+  let nameField:HTMLInputElement = document.getElementById('nameField') as HTMLInputElement;
+  let bioField: HTMLInputElement = document.getElementById('bioField') as HTMLInputElement;
+
+  var person: Person = list.find((person: Person) => person.id == Number.parseInt(idField.value));
+
+  person.name = nameField.value;
+  person.bio = bioField.value;
+
+  displayData();
 }
 
 displayData();

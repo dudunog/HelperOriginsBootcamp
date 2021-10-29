@@ -18,7 +18,6 @@
         <th>Name</th>
         <th>Biography</th>
         <th></th>
-        <th></th>
       </thead>
       <tbody id="tbody">
         <tr></tr>
@@ -26,18 +25,18 @@
     </table>
   </div>
 
-  <div class="container-edit" hidden>
+  <div class="container-edit">
     <h2>Edit</h2>
     <br />
 
-    <form id="form">
-      <input type="text" size="1" id="idField" hidden>
-      <input type="text" placeholder="Name" id="nameField">
-      <input type="text" placeholder="Biography" id="bioField">
+    <form action="">
+      <input type="text" size="1" disabled>
+      <input type="text" placeholder="Name">
+      <input type="text" placeholder="Biography">
       
       <br />
       <br />
-      <input type="submit" value="Salvar" onclick="changePerson(event)">
+      <input type="submit" value="Salvar">
     </form>
   </div>
   <script type="text/javascript" src="script.js"></script>
