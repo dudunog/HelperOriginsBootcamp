@@ -20,18 +20,18 @@ const tBody: HTMLElement = document.getElementById('tbody');
 function displayData(): void {
   tBody.innerHTML = '';
   list.forEach((person: Person) => {
-    let tr: HTMLTableRowElement = document.createElement("tr");
+    const tr: HTMLTableRowElement = document.createElement("tr");
 
-    let nameTd: HTMLTableCellElement = document.createElement("td");
+    const nameTd: HTMLTableCellElement = document.createElement("td");
     nameTd.innerText = person.name;
     tr.appendChild(nameTd);
     
-    let bioTd: HTMLTableCellElement = document.createElement("td");
+    const bioTd: HTMLTableCellElement = document.createElement("td");
     bioTd.innerText = person.bio;
     tr.appendChild(bioTd);
 
-    let deleteTd: HTMLTableCellElement = document.createElement("td");
-    let deleteAnchor: HTMLAnchorElement = document.createElement("a");
+    const deleteTd: HTMLTableCellElement = document.createElement("td");
+    const deleteAnchor: HTMLAnchorElement = document.createElement("a");
     deleteAnchor.id = `${person.id}`;
     deleteAnchor.innerText = "Delete";
     deleteAnchor.href = "";
@@ -41,8 +41,8 @@ function displayData(): void {
     
     tr.appendChild(deleteTd);
 
-    let editTd: HTMLTableCellElement = document.createElement("td");
-    let editAnchor: HTMLAnchorElement = document.createElement("a");
+    const editTd: HTMLTableCellElement = document.createElement("td");
+    const editAnchor: HTMLAnchorElement = document.createElement("a");
     editAnchor.id = `${person.id}`;
     editAnchor.innerText = "Edit";
     editAnchor.href = "";
@@ -56,9 +56,9 @@ function displayData(): void {
 }
 
 function displayEditData(id: number): void {
-  let idField:HTMLInputElement = document.getElementById('idField') as HTMLInputElement;
-  let nameField:HTMLInputElement = document.getElementById('nameField') as HTMLInputElement;
-  let bioField: HTMLInputElement = document.getElementById('bioField') as HTMLInputElement;
+  const idField:HTMLInputElement = document.getElementById('idField') as HTMLInputElement;
+  const nameField:HTMLInputElement = document.getElementById('nameField') as HTMLInputElement;
+  const bioField: HTMLInputElement = document.getElementById('bioField') as HTMLInputElement;
 
   let person:Person = list.find((person: Person) => person.id == id);
 
@@ -70,7 +70,7 @@ function displayEditData(id: number): void {
 function clickRemoveButton(event: Event): void {
   event.preventDefault();
 
-  let anchor: HTMLAnchorElement = event.target as HTMLAnchorElement;
+  const anchor: HTMLAnchorElement = event.target as HTMLAnchorElement;
   removeItem(Number.parseInt(anchor.id));
 
   displayData();
@@ -83,8 +83,8 @@ function removeItem(id: number): void {
 function clickGoUpdate(event: Event): void {
   event.preventDefault();
 
-  let anchor: HTMLAnchorElement = event.target as HTMLAnchorElement;
-  let containerEdit: HTMLElement = document.querySelector('.container-edit');
+  const anchor: HTMLAnchorElement = event.target as HTMLAnchorElement;
+  const containerEdit: HTMLElement = document.querySelector('.container-edit');
   containerEdit.hidden = false;
 
   displayEditData(Number.parseInt(anchor.id));
@@ -93,11 +93,11 @@ function clickGoUpdate(event: Event): void {
 function changePerson(event: Event) {
   event.preventDefault();
 
-  let idField:HTMLInputElement = document.getElementById('idField') as HTMLInputElement;
-  let nameField:HTMLInputElement = document.getElementById('nameField') as HTMLInputElement;
-  let bioField: HTMLInputElement = document.getElementById('bioField') as HTMLInputElement;
+  const idField:HTMLInputElement = document.getElementById('idField') as HTMLInputElement;
+  const nameField:HTMLInputElement = document.getElementById('nameField') as HTMLInputElement;
+  const bioField: HTMLInputElement = document.getElementById('bioField') as HTMLInputElement;
 
-  var person: Person = list.find((person: Person) => person.id == Number.parseInt(idField.value));
+  let person: Person = list.find((person: Person) => person.id == Number.parseInt(idField.value));
 
   person.name = nameField.value;
   person.bio = bioField.value;

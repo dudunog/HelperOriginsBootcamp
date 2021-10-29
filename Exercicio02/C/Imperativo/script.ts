@@ -4,7 +4,7 @@ function removeItem(id: number): string {
   let newPeople = [];
 
   for (let i = 0; i < list.length; i++) {
-    var person: Person = list[i];
+    let person: Person = list[i];
 
     if (person.id != id)
       newPeople.push(person);

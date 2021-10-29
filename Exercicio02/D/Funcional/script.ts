@@ -6,7 +6,7 @@ type PersonChange = {
 }
 
 function changePerson(id: number, change: PersonChange): string {
-  var person = list.find((person) => person.id == id);
+  let person = list.find((person) => person.id == id);
 
   if (!person)
     return 'Impossível alterar. Pessoa inexistente.';
