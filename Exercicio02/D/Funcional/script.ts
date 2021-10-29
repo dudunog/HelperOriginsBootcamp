@@ -11,8 +11,11 @@ function changePerson(id: number, change: PersonChange): string {
   if (!person)
     return 'Impossível alterar. Pessoa inexistente.';
 
-  person.name = change.name;
-  person.bio = change.bio;
+  if (typeof change.name == "string")
+    person.name = change.name;
+
+  if(typeof change.bio == "string")
+    person.bio = change.bio;
 
   return "Pessoa mudada";
 }
