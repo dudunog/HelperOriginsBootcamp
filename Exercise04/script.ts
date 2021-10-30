@@ -60,7 +60,7 @@ function displayEditData(id: number): void {
   const nameField:HTMLInputElement = document.getElementById('nameField') as HTMLInputElement;
   const bioField: HTMLInputElement = document.getElementById('bioField') as HTMLInputElement;
 
-  let person:Person = list.find((person: Person) => person.id == id);
+  let person:Person = list.find((person: Person) => person.id === id);
 
   idField.value = person.id.toString();
   nameField.value = person.name;
@@ -97,7 +97,7 @@ function changePerson(event: Event) {
   const nameField:HTMLInputElement = document.getElementById('nameField') as HTMLInputElement;
   const bioField: HTMLInputElement = document.getElementById('bioField') as HTMLInputElement;
 
-  let person: Person = list.find((person: Person) => person.id == Number.parseInt(idField.value));
+  let person: Person = list.find((person: Person) => person.id === Number.parseInt(idField.value));
 
   person.name = nameField.value;
   person.bio = bioField.value;

@@ -1,6 +1,6 @@
 function handlerList(list: number[]): number[] | string {
   let result: number[] = [];
-  if (list.every((number: number) => typeof number == "number")) {
+  if (list.every((number: number) => typeof number === "number")) {
     result.push(Math.max(...list));
     result.push(Math.min(...list));
 
