@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercises - Helpper Origins</title>
+
+  <link rel="stylesheet" href="css.css">
+</head>
+<body>
+  <div class="container-data">
+    <h2>Data</h2>
+    <br />
+
+    <table>
+      <thead id="thead">
+        <th>Name</th>
+        <th>Biography</th>
+        <th></th>
+        <th></th>
+      </thead>
+      <tbody id="tbody">
+        <tr></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container-edit" hidden>
+    <h2>Edit</h2>
+    <br />
+
+    <form id="form">
+      <input type="text" size="1" id="idField" hidden>
+      <input type="text" placeholder="Name" id="nameField">
+      <input type="text" placeholder="Biography" id="bioField">
+      
+      <br />
+      <br />
+      <input type="submit" value="Salvar" onclick="changePerson(event)">
+    </form>
+  </div>
+  <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
