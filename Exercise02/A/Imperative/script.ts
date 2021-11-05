@@ -4,7 +4,7 @@ function getBio(id: number): string {
   for (let i = 0; i < list.length; i++) {
     let person: Person = list[i];
 
-    if (person.id == id)
+    if (person.id === id)
       return person.bio;
   }
 

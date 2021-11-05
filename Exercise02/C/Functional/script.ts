@@ -1,7 +1,7 @@
-import { list, changeList } from '../../list';
+import { list, Person, changeList } from '../../list';
 
 function removeItem(id: number): string {
-  changeList(list.filter((person) => person.id != id));
+  changeList(list.filter((person: Person) => person.id !== id));
 
   return "Pessoa apagada.";
 }

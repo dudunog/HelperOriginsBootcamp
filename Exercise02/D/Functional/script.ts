@@ -6,15 +6,15 @@ type PersonChange = {
 }
 
 function changePerson(id: number, change: PersonChange): string {
-  let person = list.find((person) => person.id == id);
+  let person = list.find((person) => person.id === id);
 
   if (!person)
     return 'Impossível alterar. Pessoa inexistente.';
 
-  if (typeof change.name == "string")
+  if (typeof change.name === "string")
     person.name = change.name;
 
-  if(typeof change.bio == "string")
+  if(typeof change.bio === "string")
     person.bio = change.bio;
 
   return "Pessoa mudada";
