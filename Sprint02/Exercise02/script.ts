@@ -1,8 +1,9 @@
+import { list } from './list';
 import { Person } from './Person';
 import { PersonImperative } from './PersonImperative';
 
 //get bio - functional
-console.log(Person.getBio(1));
+console.log(Person.getBio(3));
 
 //get bio - imperative
 console.log(PersonImperative.getBio(1));
