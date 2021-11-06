@@ -2,17 +2,31 @@
 * Represents a word.
 */
 class Word {
+   /**
+   * The word.
+   */
+  private word: String;
+
+  /**
+  * The constructor method.
+  *
+  * @param word - the word
+  */
+   constructor(word: String) {
+    this.word = word;
+  }
+
   /**
   * The method responsible for returning the amount of vowels in a word.
   *
-  * @param word - the word
   * @returns number
   */
-  public static amountVowels(word: string): number {
+  public amountVowels(): number {
     const vowels: string[] = ['a', 'e', 'i', 'o', 'u'];
     
-    return word.split('').filter((letter: string) => vowels.includes(letter.toLowerCase())).length;
+    return this.word.split('').filter((letter: string) => vowels.includes(letter.toLowerCase())).length;
   }
 }
 
-console.log(Word.amountVowels("Squad GAMA"));
+let word = new Word("Squad GAMA");
+console.log(word.amountVowels());
