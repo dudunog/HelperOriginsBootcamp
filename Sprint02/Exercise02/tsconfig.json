@@ -2,7 +2,7 @@
   "compilerOptions": {
     /* Language and Environment */
     "target": "es5",
-    "lib": ["ES6", "ES7", "DOM"],
+    "lib": ["ES5", "ES7", "DOM"],
 
     /* Modules */
     "module": "commonjs",
