@@ -11,9 +11,9 @@ class Word {
   static amountVowels(word: string): number {
     const vowels: string[] = ['a', 'e', 'i', 'o', 'u'];
     
-    let wordWithoutAccents: string = word.normalize("NFD").replace(/[^a-zA-Zs]/g, "");
+    const wordWithoutAccents: string = word.normalize("NFD").replace(/[^a-zA-Zs]/g, "");
     
-    return wordWithoutAccents.split('').filter((letter: string) => vowels.includes(letter.toLowerCase())).length;
+    return Array.from(wordWithoutAccents).filter((letter: string) => vowels.includes(letter.toLowerCase())).length;
   }
 }
 
