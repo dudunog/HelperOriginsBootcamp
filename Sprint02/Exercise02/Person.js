@@ -66,6 +66,20 @@ var Person = /** @class */ (function () {
     Person.getBio = function (id) {
         return this.getPerson(id)._bio;
     };
+    /**
+    * The method responsible for removing a person by their id.
+    *
+    * @param id - the identifier
+    * @returns string
+    */
+    Person.remove = function (id) {
+        var people = list_1.list.filter(function (person) { return person.getId() !== id; });
+        if (people.length < list_1.list.length) {
+            (0, list_1.changeList)(people);
+            return "Pessoa apagada.";
+        }
+        throw new Error("A pessoa especificada não existe.");
+    };
     return Person;
 }());
 exports.Person = Person;

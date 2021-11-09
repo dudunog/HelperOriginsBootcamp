@@ -1,4 +1,4 @@
-import { list } from './list';
+import { list, changeList } from './list';
 import { Person } from './Person';
 
 /**
@@ -21,6 +21,31 @@ export class PersonImperative extends Person  {
       
       if (person.getId() === id)
         return new Person(person.getId(), person.getName(), person.getBio());
+    }
+
+    throw new Error("A pessoa especificada não existe.");
+  }
+
+  /**
+  * The method responsible for removing a person by their id.
+  *
+  * @param id - the identifier
+  * @returns string
+  */
+  static override remove(id: number): string {
+    let people: Person[] = [];
+    
+    for (let i = 0; i < list.length; i++) {
+      const person: Person = list[i];
+      
+      if (person.getId() !== id)
+        people.push(new Person(person.getId(), person.getName(), person.getBio()));
+    }
+
+    if (people.length < list.length) {
+      changeList(people);
+      
+      return "Pessoa apagada."; 
     }
 
     throw new Error("A pessoa especificada não existe.");

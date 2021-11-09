@@ -40,6 +40,25 @@ var PersonImperative = /** @class */ (function (_super) {
         }
         throw new Error("A pessoa especificada não existe.");
     };
+    /**
+    * The method responsible for removing a person by their id.
+    *
+    * @param id - the identifier
+    * @returns string
+    */
+    PersonImperative.remove = function (id) {
+        var people = [];
+        for (var i = 0; i < list_1.list.length; i++) {
+            var person = list_1.list[i];
+            if (person.getId() !== id)
+                people.push(new Person_1.Person(person.getId(), person.getName(), person.getBio()));
+        }
+        if (people.length < list_1.list.length) {
+            (0, list_1.changeList)(people);
+            return "Pessoa apagada.";
+        }
+        throw new Error("A pessoa especificada não existe.");
+    };
     return PersonImperative;
 }(Person_1.Person));
 exports.PersonImperative = PersonImperative;

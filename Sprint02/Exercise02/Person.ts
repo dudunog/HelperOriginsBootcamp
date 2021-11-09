@@ -1,4 +1,4 @@
-import { list } from './list';
+import { list, changeList } from './list';
 
 /**
 * Represents a person.
@@ -74,5 +74,23 @@ export class Person {
   */
   static getBio(id: number): string {
     return this.getPerson(id)._bio;
+  }
+
+  /**
+  * The method responsible for removing a person by their id.
+  *
+  * @param id - the identifier
+  * @returns string
+  */
+  static remove(id: number): string {
+    const people: Person[] = list.filter((person: Person) => person.getId() !== id);
+
+    if (people.length < list.length) {
+      changeList(people);
+    
+      return "Pessoa apagada."; 
+    }
+
+    throw new Error("A pessoa especificada não existe.");
   }
 }

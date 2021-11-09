@@ -11,5 +11,20 @@ console.log(PersonImperative.getBio(1));
 //get name - functional
 console.log(Person.getName(1));
 
-//get name - functional
+//get name - imperative
 console.log(PersonImperative.getName(1));
+
+//show the list
+console.log(list);
+
+//remove person - functional
+console.log(Person.remove(1));
+
+//show the list
+console.log(list);
+
+//remove person - imperative
+console.log(PersonImperative.remove(3));
+
+//show the list
+console.log(list);
