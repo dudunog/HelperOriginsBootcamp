@@ -18,7 +18,7 @@ export class List {
   * @param list - the list
   * @returns number[] | string
   */
-   static handlerList(list: number[]): List {
+  public static handlerList(list: number[]): List {
     let max: number = 0;
     let min: number = 0;
     let sum: number = 0;
