@@ -36,6 +36,22 @@ var Person = /** @class */ (function () {
         return this._bio;
     };
     /**
+    * The method responsible for setting a person's name.
+    *
+    * @returns string
+    */
+    Person.prototype.setName = function (name) {
+        this._name = name;
+    };
+    /**
+    * The method responsible for setting a person's bio.
+    *
+    * @returns string
+    */
+    Person.prototype.setBio = function (bio) {
+        this._bio = bio;
+    };
+    /**
     * The method responsible for returning a person by their id.
     *
     * @param id - the identifier
@@ -47,6 +63,24 @@ var Person = /** @class */ (function () {
             return new Person(person._id, person._name, person._bio);
         else
             throw new Error("A pessoa especificada não existe.");
+    };
+    /**
+    * The method responsible for returning a person by their id.
+    *
+    * @param id - the identifier
+    * @returns string
+    */
+    Person.setPerson = function (id, change) {
+        var person = list_1.list.find(function (person) { return person._id === id; });
+        if (person) {
+            if (typeof change._name === "string")
+                person._name = change._name;
+            if (typeof change._bio === "string")
+                person._bio = change._bio;
+        }
+        else {
+            throw new Error("A pessoa especificada não existe.");
+        }
     };
     /**
     * The method responsible for returning a person's name by their id.
@@ -79,6 +113,16 @@ var Person = /** @class */ (function () {
             return "Pessoa apagada.";
         }
         throw new Error("A pessoa especificada não existe.");
+    };
+    /**
+    * The method responsible for changing a person by their id.
+    *
+    * @param id - the identifier
+    * @returns string
+    */
+    Person.changePerson = function (id, change) {
+        this.setPerson(id, change);
+        return "Pessoa mudada";
     };
     return Person;
 }());

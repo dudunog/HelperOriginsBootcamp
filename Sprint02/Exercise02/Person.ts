@@ -1,10 +1,15 @@
 import { list, changeList } from './list';
 
+type PersonChange = {
+  name: string;
+  bio: string;
+}
+
 /**
 * Represents a person.
 */
 export class Person {
-  private _id: number;
+  private _id?: number;
   private _name: string;
   private _bio: string;
 
@@ -42,6 +47,24 @@ export class Person {
   }
 
   /**
+  * The method responsible for setting a person's name.
+  *
+  * @returns string
+  */
+  setName(name: string): void {
+    this._name = name;
+  }
+
+  /**
+  * The method responsible for setting a person's bio.
+  *
+  * @returns string
+  */
+  setBio(bio: string): void {
+    this._bio = bio;
+  }
+
+  /**
   * The method responsible for returning a person by their id.
   *
   * @param id - the identifier
@@ -54,6 +77,27 @@ export class Person {
       return new Person(person._id, person._name, person._bio);
     else
       throw new Error("A pessoa especificada não existe.");
+  }
+
+  /**
+  * The method responsible for returning a person by their id.
+  *
+  * @param id - the identifier
+  * @returns string
+  */
+   protected static setPerson(id: number, change: Person): void {
+    const person: Person = list.find((person: Person) => person._id === id);
+    
+    if (person) {
+      if (typeof change._name === "string")
+        person._name = change._name;
+  
+      if(typeof change._bio === "string")
+        person._bio = change._bio;
+    }
+    else {
+      throw new Error("A pessoa especificada não existe.");
+    }
   }
 
   /**
@@ -92,5 +136,17 @@ export class Person {
     }
 
     throw new Error("A pessoa especificada não existe.");
+  }
+
+  /**
+  * The method responsible for changing a person by their id.
+  *
+  * @param id - the identifier
+  * @returns string
+  */
+  static changePerson(id: number, change: Person): string {
+    this.setPerson(id, change);
+
+    return "Pessoa mudada";
   }
 }

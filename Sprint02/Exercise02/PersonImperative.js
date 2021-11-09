@@ -41,6 +41,25 @@ var PersonImperative = /** @class */ (function (_super) {
         throw new Error("A pessoa especificada não existe.");
     };
     /**
+    * The method responsible for returning a person by their id.
+    *
+    * @param id - the identifier
+    * @returns string
+    */
+    PersonImperative.setPerson = function (id, change) {
+        for (var i = 0; i < list_1.list.length; i++) {
+            var person = list_1.list[i];
+            if (person.getId() === id) {
+                if (typeof change.getName() === "string")
+                    person.setName(change.getName());
+                if (typeof change.getBio() === "string")
+                    person.setBio(change.getBio());
+                return;
+            }
+        }
+        throw new Error("A pessoa especificada não existe.");
+    };
+    /**
     * The method responsible for removing a person by their id.
     *
     * @param id - the identifier
@@ -58,6 +77,16 @@ var PersonImperative = /** @class */ (function (_super) {
             return "Pessoa apagada.";
         }
         throw new Error("A pessoa especificada não existe.");
+    };
+    /**
+    * The method responsible for changing a person by their id.
+    *
+    * @param id - the identifier
+    * @returns string
+    */
+    PersonImperative.changePerson = function (id, change) {
+        this.setPerson(id, change);
+        return "Pessoa mudada";
     };
     return PersonImperative;
 }(Person_1.Person));
