@@ -24,19 +24,6 @@ var Person = /** @class */ (function () {
         else
             throw new Error("A pessoa especificada não existe.");
     };
-    /**
-    * The method responsible for returning a person by their name.
-    *
-    * @param id - the identifier
-    * @returns string
-    */
-    Person.getPersonByName = function (name) {
-        var person = list_1.list.find(function (person) { return person._name.toUpperCase().includes(name.toUpperCase()); });
-        if (person)
-            return new Person(person._id, person._name, person._bio);
-        else
-            throw new Error("A pessoa especificada não existe.");
-    };
     return Person;
 }());
 exports.Person = Person;
